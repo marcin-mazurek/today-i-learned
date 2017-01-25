@@ -1,4 +1,4 @@
-# JS gotchas
+# JS basics
 
 ### Types in JS
 #### Primitive
