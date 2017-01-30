@@ -1,6 +1,6 @@
 # Bash tricks
 
-#### Swapping a fragment of previous command
+#### Swapping a fragment of a previous command
 ```
 ^fcuk^fuck^
 ```
