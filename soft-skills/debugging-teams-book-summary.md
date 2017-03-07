@@ -1,5 +1,7 @@
 # Debugging teams - book summary
 
+![Cover](http://akamaicovers.oreilly.com/images/0636920042372/lrg.jpg)
+
 ## Key thoughts
 
 * Embrace HRT - humility, respect, trust
