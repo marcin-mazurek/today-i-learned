@@ -53,3 +53,4 @@
   - does not allow to change projects
   - treats employees like children
   - counts lines of code / meetings attended
+* Google have a policy of not preannouncing features for any product to avoid internal death marches to meet an unrealistic deadline
