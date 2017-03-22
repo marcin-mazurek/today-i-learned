@@ -14,3 +14,15 @@ mv /path/to/{old_file.js,new.file_js}
 ```
 tail -f
 ```
+
+#### Shortcut to refer to the last argument of the last command
+```
+$_
+```
+
+Example - how to get to the newly created directory quickly:
+
+```
+mkdir test
+cd $_
+```
