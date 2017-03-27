@@ -1,4 +1,4 @@
-# Default variables in SASS
+# Variables with !default flag in SASS
 The following syntax:
 ```
 $example: 'value' !default;
