@@ -5,7 +5,7 @@
 - boolean
 - null
 - undefined
-- number
+- number (includes NaN, Infinity)
 - string
 - symbol
 
