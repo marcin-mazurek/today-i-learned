@@ -1,12 +1,12 @@
 # JS tricks and less known features
 ## How many arguments does a function accept?
-```javascript
+```js
 function myFn(a, b, c, d) {}
 console.log(myFn.length); // 4
 ```
 
 ## How to compare objects with `>` and `<` operators?
-```javascript
+```js
 class EmployeeID {
   constructor(id) {
     this.id = id;
@@ -24,6 +24,6 @@ console.log(firstEmployeeID > lastEmployeeID); // false
 ```
 
 ## How to replace all occurencies of a substring in a string?
-```javascript
+```js
 string.replace(/apple/g, "banana")
 ```
