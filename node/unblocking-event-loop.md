@@ -43,7 +43,8 @@ Fourth operation - fetching the current directory is an I/O operation that takes
 despite being declared at the very top, the thread becomes free until we get the result from the file
 system and executes the callback from setTimeout(fn, 0).
 
-Fifth operation - a callback passed to setImmediate(fn) will be executed once all I/O actions are completed.
+Fifth operation - a callback passed to setImmediate(fn) will be executed once all I/O actions are
+completed.
 ```
 
 Read more about the Node.js event loop: https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/
