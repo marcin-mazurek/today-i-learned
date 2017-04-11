@@ -5,9 +5,9 @@ The code snippet below demonstates a few different ways to unblock the event loo
 ```js
 const fs = require('fs');
 fs.readdir(process.cwd(), () => {
-  console.log('Fourth operation - fetching the current directory is an I/O operation that takes time. '
-    + 'Therefore, despite being declared at the very top, the thread becomes free until '
-    + 'we get the result from the file system and executes the callback from setTimeout(fn, 0).');
+  console.log('Fourth operation - fetching the current directory is an I/O operation that takes '
+    + 'a bit of time. Therefore, despite being declared at the very top, the thread becomes free '
+    + 'until we get the result from the file system and executes the callback from setTimeout(fn, 0).');
 });
 
 setImmediate(() => console.log('Fifth - a callback passed to setImmediate(fn) will be executed '
