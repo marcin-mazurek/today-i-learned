@@ -1,4 +1,4 @@
-# Demobuncing with `requestAnimationFrame`
+# Debuncing with `requestAnimationFrame`
 You can simply accomplish smooth debouncing without arbitrary values with `requestAnimationFrame`:
 
 ```js
