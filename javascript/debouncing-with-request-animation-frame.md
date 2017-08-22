@@ -7,14 +7,14 @@ function debounceWithRAF(callback) {
   let frameRequested = false;
   
   return () => {
-    if (frameRequested) return;    
+    if (frameRequested) return;
     frameRequested = true;
     
     requestAnimationFrame(() => {
       callback();
       frameRequested = false;
     });
-  });
+  };
 }
 
 window.addEventListener('scroll', debounceWithRAF(fn));
