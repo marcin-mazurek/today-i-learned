@@ -16,7 +16,7 @@
 
 ## Communication
 * When working in a geographically challenged team, don't be afraid to regularly get on a plane and visit the rest of the team and build team spirit
-* Prefer asynchronous communication (ticket systems, chats, document) over synchronous (meeting)
+* Prefer asynchronous communication (ticket systems, chats, documents) over synchronous (meeting)
 * Overcommunicate - don't be afraid to duplicate your messages. Do your best to inform everybody
 
 ## Dealing with failures
