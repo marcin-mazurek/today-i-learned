@@ -1,4 +1,4 @@
-# Listing only unique values, sorted
+### Listing only unique values, sorted
 ```
 some-command | sort | uniq
 ```
