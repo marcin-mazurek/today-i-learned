@@ -5,7 +5,7 @@ React has a special prop `children`, which you can use to provide some content. 
 ```
 const Header = ({ children }) => <h1>{children}</h1>;
 
-const App = () => <Header>Hello!</Header>
+const App = () => <Header>Hello!</Header>;
 ```
 
 But the `children` prop can be much more powerful, if you combine it's potential with a bit of pure JS.
