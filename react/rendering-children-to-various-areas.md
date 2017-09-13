@@ -26,11 +26,11 @@ and extract the needed elements by the type:
 ```
 import { CardTitle, CardContent, CardActions } from '....';
 
-function Card ({ children }) {
-  const children = React.Children.toArray(children);
-  const title = children.find(c => c instanceof CardTitle);
-  const content = children.find(c => c instanceof CardContent);
-  const actions = children.find(c => c instanceof CardActions);
+function Card({ children }) {
+  const elements = React.Children.toArray(children);
+  const title = elements.find(e => e.type === CardTitle).props.children;
+  const content = elements.find(e => e.type === CardContent).props.children;
+  const actions = elements.find(e => e.type === CardActions).props.children;
   
   return (
     <div>
