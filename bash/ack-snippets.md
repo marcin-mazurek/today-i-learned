@@ -21,3 +21,8 @@ PORT
 ```
 
 `-h` flag hides file names
+
+## List only file names
+```
+ack ... --files-with-matches
+```
