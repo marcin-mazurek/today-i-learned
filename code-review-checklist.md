@@ -3,6 +3,7 @@
 ## General
 
 - [ ] Automated tests written
+- [ ] README written / updated
 
 ## Bug fixes
 
