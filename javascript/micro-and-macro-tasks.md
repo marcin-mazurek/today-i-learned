@@ -4,7 +4,7 @@ There's two types of event loop tasks: microtasks and tasks, also called macrota
 
 **Microtasks** can be scheduled during a macrotask execution, and those will be exectued before next **macrotask** will start.
 
-Take a look at the diagram:
+To visualise, let's take a look at the diagram:
 
 ```
 +----------------------------------+
