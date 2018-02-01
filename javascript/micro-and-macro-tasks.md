@@ -64,8 +64,10 @@ setTimeout(() => {
 }, 0);
 ```
 
-`process.nextTick` and `Promise.resolve()` schedule a microtask.
-Any other asynchronous actions (eg. file system access), and timer intialisations (such as `setTimeout`), schedule a task.
+`process.nextTick` (Node.js only), `Promise.resolve()`, `MutationObserver` callbacks (browser only) schedule a microtask.
+
+Any other asynchronous actions (eg. file system access), and timers (such as `setTimeout`), schedule a task.
+
 To make things more difficult, any callback scheduled with `setImmediate` gets executed after everything else (including I/O operations).
 
 For more details, check out Jake Archibald's blog post: https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/
