@@ -33,7 +33,8 @@ The above snippet will output the following:
 First operation - just a synchronous call, doesn't go to the event loop. If you perform a long running
 operation, it's recommended not to do it synchronously to avoid blocking the event loop for a long time.
 
-Second operation - process.nextTick(fn) schedules a microtask. It is prioritised over all other tasks (actually called macrotasks) in the event loop. It is almost like a synchronous asynchronous call.
+Second operation - process.nextTick(fn) schedules a microtask. It is prioritised over all other tasks
+(actually called macrotasks) in the event loop. It is almost like a synchronous asynchronous call.
 
 Third operation - setTimeout(fn, 0) is executed once the action from process.nextTick(fn) is completed.
 
