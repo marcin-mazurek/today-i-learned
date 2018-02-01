@@ -14,9 +14,9 @@ setImmediate(() => console.log('Fifth operation - a callback passed to setImmedi
   + 'will be executed once all I/O actions are completed.'));
 
 process.nextTick(() => {
-  console.log('Second operation - process.nextTick(fn) sends an operation to the top of '
-    + 'the event queue (well, can we really call it a queue then?!). '
-    + 'The callback is executed as soon as all calls from the frame stack are finished.');
+  console.log('Second operation - process.nextTick(fn) schedules a microtask. '
+    + 'It is prioritised over all other tasks in the event loop. '
+    + 'It's almost like a synchronous asynchronous call.');
 });
 
 setTimeout(() => console.log("Third operation - setTimeout(fn, 0) is executed once the action " + 
