@@ -8,3 +8,7 @@
 ## Bug fixes
 
 - [ ] Regression tests added
+
+## Accessibility
+
+- [ ] Semantic markup used
