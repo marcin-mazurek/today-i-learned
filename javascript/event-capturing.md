@@ -25,13 +25,13 @@ button.addEventListener('click', () => console.log('Executed second'), true);
 
 In practise - this means that the order of event handlers will be reversed, and prioritised over event bubbling handlers.
 
-We can use this behaviour to prevent events reach the target element. 
+We can use this behaviour to prevent events reach the target element:
 
 ```
 const button = document.querySelector('button');
 
 button.parentNode.addEventListener('click', evt => evt.stopPropagation(), true);
-button.addEventListener('click', () => console.log('Not executed'), true);
+button.addEventListener('click', () => console.log('Will not be executed'), true);
 ```
 
-A sample CodePen to try this out in practice: https://codepen.io/marcin-mazurek/pen/mxPRjM/?editors=1111
+A sample CodePen to check event capturing out in practice: https://codepen.io/marcin-mazurek/pen/mxPRjM/?editors=1111
