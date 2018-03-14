@@ -23,6 +23,9 @@
 * Define a clear responsibilities in the team (eg. using the team responsibility matrix)
 * Define clear rules for collaboration between the client or business
 
+## Documentation
+* Have a decision tracker, where you track important technical and architectural decisions with justification. Example columns: date, decision, problem solved, trade-off, justification, considered alternatives, people involved.
+
 ## Conflicts
 * Prevent conflicts from happening in the first place by regular retrospectives and one-to-one meetings
 * Always be gentle! Avoid personal attacks. Make sure that what you're going to say will not hurt anybody
