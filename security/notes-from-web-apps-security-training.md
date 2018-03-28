@@ -22,9 +22,20 @@ Training agenda: [niebezpiecznik.pl/szkolenia/atakowanie-ochrona-www/](https://n
   * *White-box* hacking - working directly on source code and identifying security vurnerabilities
   * *Black-box* hacking - acting as a real hacker, trying to hack into a system/application
 * **Principle of least privilege** (stubborn admin rule) - do not give a permission to a resource up-front, unless the user really needs it
+* Never, ever, use default settings for stuff like login or password
+* Tools to check domain info
+  * `whois`
+  * `host`
+* **Google hacking** - using Google search to find security vurnerabilities, eg. configuration files, vurnerable open source plugins, directory indicies
+  * `site:example.com ...` - looking for a keyword on a particular website
+  * `intitle:index.of ...` - looking for a directory index
+  * [Bing](https://bing.com) also allows to search by IP: eg. `ip:192.30.252.153 ...` searches for pages hosted on GitHub Pages hosting
+* Security competitions
+  * [CTFtime.org](https://ctftime.org/)
   
 ## To explore
 - [ ] Threat modeling
 - [ ] Network Address Translation
 - [ ] WiFi Pineapple threat
 - [ ] Apps isolation
+- [ ] Server hardening
