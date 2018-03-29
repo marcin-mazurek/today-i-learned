@@ -8,9 +8,13 @@ Training agenda: [niebezpiecznik.pl/szkolenia/atakowanie-ochrona-www/](https://n
   * [tcpdump](https://danielmiessler.com/study/tcpdump) - analysing network traffic (CLI)
   * [Wireshark](https://www.wireshark.org) - analysing network traffic (GUI)
   * `whois`, `host` - checking domain info
-  * [OWASP ZAP](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project) - multipurpose penetration testing tool for finding vulnerabilities in web applications, allows to perform:
-    * brute-force file/directory search
-    * ...
+  * [OWASP ZAP](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project) - multipurpose penetration testing tool for finding vulnerabilities in web applications
+    * Functionality:
+      * brute-force file/directory search
+      * ...
+    * Commercial competitors:
+      * [Acunetix](https://www.acunetix.com)
+      * [IBM AppScan](https://www.ibm.com/security/application-security/appscan)
 * SaaS
   * [shodan.io](https://www.shodan.io) - search engine for publicly available devices, servers (often with default settings)
   * [images.shodan.io](http://images.shodan.io) - visual search engine for stuff like webcams, unsecured remote desktop, etc. ([screenshot](https://pbs.twimg.com/media/CMFfQJ9UkAQvGVs.png))
@@ -27,7 +31,9 @@ Training agenda: [niebezpiecznik.pl/szkolenia/atakowanie-ochrona-www/](https://n
     * Password reminder: "If we found this email in the database, we'll send you a reset link"
   * Performing actions such as sending a password reset email asynchronously (eg. using a message bus) to avoid guessing based on the response time
 * Remove metadata (especially author, path on a disk) from documents (eg. `.doc`, `.pdf`) before publishing
-  
+* HTTP
+  * Do not perform `GET` requests with any sensitive data - it will be stored in logs, and may be visible if you're using TLS with SNI
+
 ## Vocabulary
 * **Zero-day attack** - happens once software/hardware vulnerability is exploited and attackers release malware before a developer has an opportunity to create a patch to fix the vulnerability.
 * **Penetration testing**
@@ -51,3 +57,4 @@ Training agenda: [niebezpiecznik.pl/szkolenia/atakowanie-ochrona-www/](https://n
 - [ ] Apps isolation
 - [ ] Server hardening
 - [ ] Misconfigured zone transfers
+- [ ] HTTPS vs TLS vs SSL?
