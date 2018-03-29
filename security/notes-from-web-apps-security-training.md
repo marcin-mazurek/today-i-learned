@@ -8,6 +8,9 @@ Training agenda: [niebezpiecznik.pl/szkolenia/atakowanie-ochrona-www/](https://n
   * [tcpdump](https://danielmiessler.com/study/tcpdump) - analysing network traffic (CLI)
   * [Wireshark](https://www.wireshark.org) - analysing network traffic (GUI)
   * `whois`, `host` - checking domain info
+  * [OWASP ZAP](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project) - multipurpose penetration testing tool for finding vulnerabilities in web applications, allows to perform:
+    * brute-force file/directory search
+    * ...
 * SaaS
   * [shodan.io](https://www.shodan.io) - search engine for publicly available devices, servers (often with default settings)
   * [images.shodan.io](http://images.shodan.io) - visual search engine for stuff like webcams, unsecured remote desktop, etc. ([screenshot](https://pbs.twimg.com/media/CMFfQJ9UkAQvGVs.png))
@@ -23,6 +26,7 @@ Training agenda: [niebezpiecznik.pl/szkolenia/atakowanie-ochrona-www/](https://n
     * Login: "The login/password is incorrect"
     * Password reminder: "If we found this email in the database, we'll send you a reset link"
   * Performing actions such as sending a password reset email asynchronously (eg. using a message bus) to avoid guessing based on the response time
+* Remove metadata (especially author, path on a disk) from documents (eg. `.doc`, `.pdf`) before publishing
   
 ## Vocabulary
 * **Zero-day attack** - happens once software/hardware vulnerability is exploited and attackers release malware before a developer has an opportunity to create a patch to fix the vulnerability.
@@ -34,6 +38,7 @@ Training agenda: [niebezpiecznik.pl/szkolenia/atakowanie-ochrona-www/](https://n
   * `site:example.com ...` - looking for a keyword on a particular website
   * `intitle:index.of ...` - looking for a directory index
   * [Bing](https://bing.com) also allows to search by IP: eg. `ip:192.30.252.153 ...` searches for pages hosted on GitHub Pages hosting
+* **Web Server Fingerprinting** - recognizing/guessing the server engine (and possibly version) based on HTTP headers it responds with and its behaviour
 
 ## Useful websites
 * Security competitions
@@ -45,3 +50,4 @@ Training agenda: [niebezpiecznik.pl/szkolenia/atakowanie-ochrona-www/](https://n
 - [ ] WiFi Pineapple threat
 - [ ] Apps isolation
 - [ ] Server hardening
+- [ ] Misconfigured zone transfers
