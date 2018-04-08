@@ -22,7 +22,7 @@
 ## Dealing with failures
 * Always admit mistakes
 * It's ok to fail if you learn from your failures
-* Don't lie - tell when you can't tell saomething or admit you don't know it
+* Don't lie - tell when you can't tell something or admit you don't know it
 * Document your failures - write up "postmortems" - summary, timeline of the event, the primary cause of the event, impact and damage assesment, a set of actions to fix the problem, a set of actions to prevent the event from happening again, lessons learned. They do it every time there's production failure at Google
 
 ## Team leading
