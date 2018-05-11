@@ -1,7 +1,7 @@
 # Notes from Web Apps Security training from Niebezpiecznik.pl
 Training agenda: [niebezpiecznik.pl/szkolenia/atakowanie-ochrona-www/](https://niebezpiecznik.pl/szkolenia/atakowanie-ochrona-www/)
 
-## Tools, apps
+## Tools, apps, websites
 * [Kali Linux](https://www.kali.org/) - Penetration Testing Linux Distribution
 * Network security tools
   * [nmap](https://nmap.org) - network exploration tool and port scanner
@@ -19,6 +19,7 @@ Training agenda: [niebezpiecznik.pl/szkolenia/atakowanie-ochrona-www/](https://n
   * [shodan.io](https://www.shodan.io) - search engine for publicly available devices, servers (often with default settings)
   * [images.shodan.io](http://images.shodan.io) - visual search engine for stuff like webcams, unsecured remote desktop, etc. ([screenshot](https://pbs.twimg.com/media/CMFfQJ9UkAQvGVs.png))
   * [stalkscan.com](http://stalkscan.com) - all 'public' info Facebook doesn't let you see (can be used to eg. prepare "personalised" attack based on interests, etc.)
+* [CTFtime.org](https://ctftime.org/) - security competitions
   
 ## Books
 * The Tangled Web
@@ -81,12 +82,6 @@ Training agenda: [niebezpiecznik.pl/szkolenia/atakowanie-ochrona-www/](https://n
 * Opening a page in an iframe - disablee with Content-Security–Policy or X-Frame-Options header, or in JavaScript using "framekiller" (checking the self variable)
 * Path traversal in server-side includes - when there's no validation on the file name to load
   * Null-byte attack - stripping the rest of the string to eg. remove the hardcoded extension. Even if we have something like `include '/home/userx/data/' .$_GET['name']. '.jpg'`, we can strip the rest of the variable by passing a null byte. C based languages (eg. PHP) may be vulnerable.
-
-
-
-## Useful websites
-* Security competitions
-  * [CTFtime.org](https://ctftime.org/)
   
 ## To explore
 - [ ] Threat modeling
