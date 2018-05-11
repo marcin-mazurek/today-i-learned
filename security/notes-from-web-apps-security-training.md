@@ -21,7 +21,7 @@ Training agenda: [niebezpiecznik.pl/szkolenia/atakowanie-ochrona-www/](https://n
   * [stalkscan.com](http://stalkscan.com) - all 'public' info Facebook doesn't let you see (can be used to eg. prepare "personalised" attack based on interests, etc.)
 * [CTFtime.org](https://ctftime.org/) - security competitions
   
-## Books
+## Recommended books
 * The Tangled Web
 * The Browser Hacker's Handbook
 * The Web Application Hacker's Handbook
