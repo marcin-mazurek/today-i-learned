@@ -1,49 +1,6 @@
 # Notes from Web Apps Security training from Niebezpiecznik.pl
 Training agenda: [niebezpiecznik.pl/szkolenia/atakowanie-ochrona-www/](https://niebezpiecznik.pl/szkolenia/atakowanie-ochrona-www/)
 
-## Tools, apps, websites
-* [Kali Linux](https://www.kali.org/) - Penetration Testing Linux Distribution
-* Network security tools
-  * [nmap](https://nmap.org) - network exploration tool and port scanner
-  * [tcpdump](https://danielmiessler.com/study/tcpdump) - analysing network traffic (CLI)
-  * [Wireshark](https://www.wireshark.org) - analysing network traffic (GUI)
-  * [dnsenum](https://github.com/fwaeytens/dnsenum) - gathering public information about domains/DNS config, allows for sub-domain bruteforcing
-  * `whois`, `host` - checking domain info
-* Penetration testing tools / scanners
-  * [OWASP ZAP](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project) - multipurpose penetration testing tool for finding vulnerabilities in web applications
-  * [Acunetix](https://www.acunetix.com)
-  * [IBM AppScan](https://www.ibm.com/security/application-security/appscan)
-  * [Metasploit](https://www.metasploit.com/)
-  * [skipfish](https://github.com/spinkham/skipfish)
-  * [Nikto](https://cirt.net/Nikto2)
-* JavaScript related
-  * [/packer/](http://dean.edwards.name/packer/) - JavaScript compressor / obfuscator
-  * [JSFuck](http://www.jsfuck.com/) - writes any JavaScript using 6 characters - `()+[]!`
-  * [https://chrome.google.com/webstore/detail/hackbar/ejljggkpbkchhfcplgpaegmbfhenekdc?hl=en](HackBar) - a Chrome extension for testing against SQL injections, XSS holes, etc.
-  * [http://beefproject.com/](BeEF) - penetration testing tool that focuses on the web browser security
-* SaaS
-  * [shodan.io](https://www.shodan.io) - search engine for publicly available devices, servers (often with default settings)
-  * [images.shodan.io](http://images.shodan.io) - visual search engine for stuff like webcams, unsecured remote desktop, etc. ([screenshot](https://pbs.twimg.com/media/CMFfQJ9UkAQvGVs.png))
-  * [stalkscan.com](http://stalkscan.com) - all 'public' info Facebook doesn't let you see (can be used to eg. prepare "personalised" attack based on interests, etc.)
-* [CTFtime.org](https://ctftime.org/) - security competitions
-  
-## Recommended books
-* The Tangled Web
-* The Browser Hacker's Handbook
-* The Web Application Hacker's Handbook
-
-## Glossary
-* **Zero-day attack** - happens once software/hardware vulnerability is exploited and attackers release malware before a developer has an opportunity to create a patch to fix the vulnerability.
-* **Penetration testing**
-  * *White-box* hacking - working directly on source code and identifying security vurnerabilities
-  * *Black-box* hacking - acting as a real hacker, trying to hack into a system/application
-* **Principle of least privilege** (or stubborn admin rule) - do not give a permission to a resource up-front, unless the user really needs it
-* **Google hacking** - using Google search to find security vurnerabilities, eg. configuration files, vurnerable open source plugins, directory indicies
-  * `site:example.com ...` - looking for a keyword on a particular website
-  * `intitle:index.of ...` - looking for a directory index
-  * [Bing](https://bing.com) also allows to search by IP: eg. `ip:192.30.252.153 ...` searches for pages hosted on GitHub Pages hosting
-* **Web Server Fingerprinting** - recognizing/guessing the server engine (and possibly version) based on HTTP headers it responds with and its behaviour
-
 ## Basic security rules
 * Never, ever, use default settings for stuff like login or password
 * Remove metadata (especially author, path on a disk) from documents (eg. `.doc`, `.pdf`) before publishing
@@ -156,7 +113,6 @@ Training agenda: [niebezpiecznik.pl/szkolenia/atakowanie-ochrona-www/](https://n
 * Securing against them:
   * Use CDNs
   * Use tools such as Cloudflare
-  * 
 
 ## Decoding passwords (eg. once database content is stolen)
 * How to decode a hashed password
@@ -177,6 +133,44 @@ Training agenda: [niebezpiecznik.pl/szkolenia/atakowanie-ochrona-www/](https://n
   ```
   <img style="display: none" onload="loggedInToGmail()" onerror="notLoggedInToGmail()" src="https://mail.google.com/mail/photos/static...">
   ```
+* Zero-day attack - happens once software/hardware vulnerability is exploited and attackers release malware before a developer has an opportunity to create a patch to fix the vulnerability.
+* Principle of least privilege (or stubborn admin rule) - do not give a permission to a resource up-front, unless the user really needs it
+* Google hacking - using Google search to find security vurnerabilities, eg. configuration files, vurnerable open source plugins, directory indicies
+  * `site:example.com ...` - looking for a keyword on a particular website
+  * `intitle:index.of ...` - looking for a directory index
+  * [Bing](https://bing.com) also allows to search by IP: eg. `ip:192.30.252.153 ...` searches for pages hosted on GitHub Pages hosting
+* Web Server Fingerprinting - recognizing/guessing the server engine (and possibly version) based on HTTP headers it responds with and its behaviour
+  
+## Tools, apps, websites
+* [Kali Linux](https://www.kali.org/) - Penetration Testing Linux Distribution
+* Network security tools
+  * [nmap](https://nmap.org) - network exploration tool and port scanner
+  * [tcpdump](https://danielmiessler.com/study/tcpdump) - analysing network traffic (CLI)
+  * [Wireshark](https://www.wireshark.org) - analysing network traffic (GUI)
+  * [dnsenum](https://github.com/fwaeytens/dnsenum) - gathering public information about domains/DNS config, allows for sub-domain bruteforcing
+  * `whois`, `host` - checking domain info
+* Penetration testing tools / scanners
+  * [OWASP ZAP](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project) - multipurpose penetration testing tool for finding vulnerabilities in web applications
+  * [Acunetix](https://www.acunetix.com)
+  * [IBM AppScan](https://www.ibm.com/security/application-security/appscan)
+  * [Metasploit](https://www.metasploit.com/)
+  * [skipfish](https://github.com/spinkham/skipfish)
+  * [Nikto](https://cirt.net/Nikto2)
+* JavaScript related
+  * [/packer/](http://dean.edwards.name/packer/) - JavaScript compressor / obfuscator
+  * [JSFuck](http://www.jsfuck.com/) - writes any JavaScript using 6 characters - `()+[]!`
+  * [https://chrome.google.com/webstore/detail/hackbar/ejljggkpbkchhfcplgpaegmbfhenekdc?hl=en](HackBar) - a Chrome extension for testing against SQL injections, XSS holes, etc.
+  * [http://beefproject.com/](BeEF) - penetration testing tool that focuses on the web browser security
+* SaaS
+  * [shodan.io](https://www.shodan.io) - search engine for publicly available devices, servers (often with default settings)
+  * [images.shodan.io](http://images.shodan.io) - visual search engine for stuff like webcams, unsecured remote desktop, etc. ([screenshot](https://pbs.twimg.com/media/CMFfQJ9UkAQvGVs.png))
+  * [stalkscan.com](http://stalkscan.com) - all 'public' info Facebook doesn't let you see (can be used to eg. prepare "personalised" attack based on interests, etc.)
+* [CTFtime.org](https://ctftime.org/) - security competitions
+  
+## Recommended books
+* The Tangled Web
+* The Browser Hacker's Handbook
+* The Web Application Hacker's Handbook
   
 ## To explore
 - [ ] Threat modeling
