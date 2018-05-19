@@ -16,7 +16,6 @@ Training agenda: [niebezpiecznik.pl/szkolenia/atakowanie-ochrona-www/](https://n
   * [Metasploit](https://www.metasploit.com/)
   * [skipfish](https://github.com/spinkham/skipfish)
   * [Nikto](https://cirt.net/Nikto2)
-* [John The Ripper](http://www.openwall.com/john/) - bruteforce hash decoder
 * JavaScript related
   * [/packer/](http://dean.edwards.name/packer/) - JavaScript compressor / obfuscator
   * [JSFuck](http://www.jsfuck.com/) - writes any JavaScript using 6 characters - `()+[]!`
@@ -75,16 +74,17 @@ Training agenda: [niebezpiecznik.pl/szkolenia/atakowanie-ochrona-www/](https://n
 
 ## SQL injection attacks
 * Be careful with scanning text looking for SQL words - as somebody may be called W**alter** Cons**table** :)
-* Blind SQL injection attack - an attack where there's no actual SQL output and no error. An attacker can only guess that a page is vurnerable, for example by appending ` AND 1=1` or ` AND 1=2` and seeing how the application behaves.  
-* Time-based blind SQL injection attack - an attack in which `sleep(x)` function is added. If the page responds with a given delay, it means that the page is vulnerable.
+* Blind SQL injection attack - an attack where there's no actual SQL output and no error. An attacker can only guess that a page is vurnerable, for example by appending ` AND 1=1` or ` AND 1=2` and seeing how the application behaves
+* Time-based blind SQL injection attack - an attack in which `sleep(x)` function is added. If the page responds with a given delay, it means that the page is vulnerable
 * Tools to check against SQL injection:
   * [sqlmap](http://sqlmap.org)
 
 ## HTTP related attacks
 * Do not perform `GET` requests with any sensitive data - it will be stored in logs, and the URL may be visible if you're using TLS with SNI
 * Do not trust HTTP headers. Each header can be overwritten
-* Sign your JSONs with eg. JSON Web Signature, to protect from users modifying data with a proxy and eg. enabling premium features for free.
-* SSL pinning - making sure the client checks the server’s certificate against a known copy of that certificate, to prevents a man-in-the-middle attacks using a fake, but trusted certificate.
+* Sign your JSONs with eg. JSON Web Signature, to protect from users modifying data with a proxy and eg. enabling premium features for free
+* SSL pinning - making sure the client checks the server’s certificate against a known copy of that certificate, to prevents a man-in-the-middle attacks using a fake, but trusted certificate
+* Use HSTS - Strict-Transport-Security response header that tells a browser that it can be only accessed using HTTPS, instead of using HTTP. Doing just a redirect is not safe - the first request (with potentially unsafe data) will not be encoded and can be captured by HTTP sniffer
 
 ## Browser attacks
 * XSS - cross-site scripting - injection of malicious scripts into trusted web sites
@@ -104,9 +104,9 @@ Training agenda: [niebezpiecznik.pl/szkolenia/atakowanie-ochrona-www/](https://n
 * CRSF or XRSF - cross-site request forgery - also called as single-click attack, occurs when loading or interacting with one website, which maliciously interact with another
   * How to protect against it:
     * Use CRSF token
-      * one-off token - can be problematic when working with multiple tabs, as each page reload will generate a new token
-      * with limited life time, eg. 24h
-      * must be assigned to a single user
+      * One-off token - can be problematic when working with multiple tabs, as each page reload will generate a new token
+      * With limited life time, eg. 24h
+      * Must be assigned to a single user
     * Require additional validation before accessing sensitive information (as when accessing user data on Ebay/Allegro)
   * What to watch out for:
     * Mutating data, especially deliting with GET request (this way data can be mutated even using CSS background!)
@@ -119,12 +119,33 @@ Training agenda: [niebezpiecznik.pl/szkolenia/atakowanie-ochrona-www/](https://n
   * Remove comments from files
   * Compress images even by 1%
   * Use separate server for upload (without any language interpreter)
+
+## User session attacks
+* Session hijacking - gaining unauthorized access to a website by stealing or guessing a session token. Token can be compromised by:
+  * being predictable/easy to guess
+  * session sniffing - unsecure connection
+  * client-side attacks like XSS, spyware
+  * man-in-the-middle attack
+* Securing against user session stealing:
+  * First, secure against XSS
+  * Verify so called browser ID (bear in mind that things listed below may change even if the user remains the same, which may result in user being logged out - consider the risk and decide which ones you  on your own)
+    * User agent
+    * IP
+    * Screen resolution
+    * List of browser fonts
   
 ## DoS attacks
 * Classic DoS/DDoS attack - performing numerous requests to the server, more than servers can handle
 * Slowloris attack - sending HTTP request content very slowly, filling a server's maximum concurrent connection pool
 
-## Other kinds of attacks
+## Decoding passwords (eg. once database content is stolen)
+* How to decode a hashed password
+  * Using rainbow tables - precomputed table for reversing cryptographic hash functions
+  * [John The Ripper](http://www.openwall.com/john/) - bruteforce hash decoder
+* How to protect
+  * Use strong, slow hashing algorithm with *salt* (a user specific string, eg. part of their email address, ID, etc.) and *pepper* - constant string. The currently recommended algorithm is future-proof, self-salting *Bcrypt*. It allows to define Key Factor, which is basically the cost of hashing. When computers become more powerful in the future, the passwords can be hashed again by given Key Factor to give additional protection against bruteforcing/rainbow table attack.
+
+## Other attacks
 * Directory bruteforcing - searching for specific directories/files (especially config files) using a dictionary attack
 * Clickjacking - substituting or inserting hidden buttons
 * Opening a page in an iframe - disablee with Content-Security–Policy or X-Frame-Options header, or in JavaScript using "framekiller" (checking the self variable)
