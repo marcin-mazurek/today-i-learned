@@ -8,7 +8,7 @@ Training agenda: [niebezpiecznik.pl/szkolenia/atakowanie-ochrona-www/](https://n
 * Watch your logs and fix errors
 * Do not keep real data on test/pre-production servers. If you have to, use anonymised data instead
 * Remember about different application versions - eg. if you have a separate mobile and desktop version, and find a security issue in one of them, check if it exists in the other one
-* Never show application/library versions (hackers can search for a specific security holes for given version)
+* Never disclose 3rd party application or library versions (hackers can search for a specific security holes for given version)
 * Before deploying to production for the first time, perform server hardening - basically, make the server secure
 * Block / hide any debugging capabilities in production
 
