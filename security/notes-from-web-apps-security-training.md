@@ -31,7 +31,7 @@ Training agenda: [niebezpiecznik.pl/szkolenia/atakowanie-ochrona-www/](https://n
 * **Penetration testing**
   * *White-box* hacking - working directly on source code and identifying security vurnerabilities
   * *Black-box* hacking - acting as a real hacker, trying to hack into a system/application
-* **Principle of least privilege** (stubborn admin rule) - do not give a permission to a resource up-front, unless the user really needs it
+* **Principle of least privilege** (or stubborn admin rule) - do not give a permission to a resource up-front, unless the user really needs it
 * **Google hacking** - using Google search to find security vurnerabilities, eg. configuration files, vurnerable open source plugins, directory indicies
   * `site:example.com ...` - looking for a keyword on a particular website
   * `intitle:index.of ...` - looking for a directory index
@@ -72,6 +72,21 @@ Training agenda: [niebezpiecznik.pl/szkolenia/atakowanie-ochrona-www/](https://n
 * Do not trust HTTP headers. Each header can be overwritten
 * Sign your JSONs with eg. JSON Web Signature, to protect from users modifying data with a proxy and eg. enabling premium features for free.
 * SSL pinning - making sure the client checks the server’s certificate against a known copy of that certificate, to prevents a man-in-the-middle attacks using a fake, but trusted certificate.
+
+## Browser attacks
+* XSS - cross-site scripting - injection of malicious scripts into trusted web sites
+  * Allows to steal any page content, swap links, mislead user, steal cookies
+  * If a browser is vurnerable, it can take over the entire operating system
+  * What to watch out for:
+    * Input fields which doesn't have validation for scripts / HTML tags
+      * If possible - do not allow any HTML tags at all. Use something like Markdown or BB Code if you need formatting
+      * Prefer whitelisting over blacklisting
+      * To execute JavaScript on content load you don't need a script tag - you can also use `<img onload=...>`
+    * Any JavaScript can be written using the following 6 characters: `()+[]!` (see http://www.jsfuck.com)
+    * XSS can be done through URL, which can be eg. sent by email
+    * Stored XSS - data earlier saved to database
+    * Filter in both ways - when reading and saving data
+  * [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) header can help mitigate XSS if it occurs
 
 ## DoS attacks
 * Slowloris attack - sending HTTP request content very slowly, filling a server's maximum concurrent connection pool
