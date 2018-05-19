@@ -2,7 +2,7 @@
 Training agenda: [niebezpiecznik.pl/szkolenia/atakowanie-ochrona-www/](https://niebezpiecznik.pl/szkolenia/atakowanie-ochrona-www/)
 
 ## Basic security rules
-* Never, ever, use default settings for stuff like login or password
+* Never use default settings
 * Remove metadata (especially author, path on a disk) from documents (eg. `.doc`, `.pdf`) before publishing
 * Never show any error details
 * Watch your logs and fix errors
