@@ -7,17 +7,21 @@ Training agenda: [niebezpiecznik.pl/szkolenia/atakowanie-ochrona-www/](https://n
   * [nmap](https://nmap.org) - network exploration tool and port scanner
   * [tcpdump](https://danielmiessler.com/study/tcpdump) - analysing network traffic (CLI)
   * [Wireshark](https://www.wireshark.org) - analysing network traffic (GUI)
+  * [dnsenum](https://github.com/fwaeytens/dnsenum) - gathering public information about domains/DNS config, allows for sub-domain bruteforcing
   * `whois`, `host` - checking domain info
+* Penetration testing tools / scanners
   * [OWASP ZAP](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project) - multipurpose penetration testing tool for finding vulnerabilities in web applications
-    * Functionality:
-      * brute-force file/directory search
-      * ...
-    * Commercial competitors:
-      * [Acunetix](https://www.acunetix.com)
-      * [IBM AppScan](https://www.ibm.com/security/application-security/appscan)
+  * [Acunetix](https://www.acunetix.com)
+  * [IBM AppScan](https://www.ibm.com/security/application-security/appscan)
+  * [Metasploit](https://www.metasploit.com/)
+  * [skipfish](https://github.com/spinkham/skipfish)
+  * [Nikto](https://cirt.net/Nikto2)
+* [John The Ripper](http://www.openwall.com/john/) - bruteforce hash decoder
 * JavaScript related
   * [/packer/](http://dean.edwards.name/packer/) - JavaScript compressor / obfuscator
   * [JSFuck](http://www.jsfuck.com/) - writes any JavaScript using 6 characters - `()+[]!`
+  * [https://chrome.google.com/webstore/detail/hackbar/ejljggkpbkchhfcplgpaegmbfhenekdc?hl=en](HackBar) - a Chrome extension for testing against SQL injections, XSS holes, etc.
+  * [http://beefproject.com/](BeEF) - penetration testing tool that focuses on the web browser security
 * SaaS
   * [shodan.io](https://www.shodan.io) - search engine for publicly available devices, servers (often with default settings)
   * [images.shodan.io](http://images.shodan.io) - visual search engine for stuff like webcams, unsecured remote desktop, etc. ([screenshot](https://pbs.twimg.com/media/CMFfQJ9UkAQvGVs.png))
@@ -46,6 +50,12 @@ Training agenda: [niebezpiecznik.pl/szkolenia/atakowanie-ochrona-www/](https://n
 * Remove metadata (especially author, path on a disk) from documents (eg. `.doc`, `.pdf`) before publishing
 * Never show any error details
 * Watch your logs and fix errors
+
+## Personal security
+* Use two factor authentication
+* [umatrix](https://chrome.google.com/webstore/detail/umatrix/ogfcmafjalglgifnmanfmnieipoejdcf?hl=en) - in-browser firewall extension, blocks malware domains, allows for flexible setup
+* If you type a password on a website, make sure it uses SSL
+* Do not use untrusted VPN services
 
 ## Authentication attacks
 * Securing against bruteforce attacks
@@ -110,8 +120,8 @@ Training agenda: [niebezpiecznik.pl/szkolenia/atakowanie-ochrona-www/](https://n
   * Compress images even by 1%
   * Use separate server for upload (without any language interpreter)
   
-  
 ## DoS attacks
+* Classic DoS/DDoS attack - performing numerous requests to the server, more than servers can handle
 * Slowloris attack - sending HTTP request content very slowly, filling a server's maximum concurrent connection pool
 
 ## Other kinds of attacks
