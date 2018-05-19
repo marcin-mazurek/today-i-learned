@@ -15,6 +15,9 @@ Training agenda: [niebezpiecznik.pl/szkolenia/atakowanie-ochrona-www/](https://n
     * Commercial competitors:
       * [Acunetix](https://www.acunetix.com)
       * [IBM AppScan](https://www.ibm.com/security/application-security/appscan)
+* JavaScript related
+  * [/packer/](http://dean.edwards.name/packer/) - JavaScript compressor / obfuscator
+  * [JSFuck](http://www.jsfuck.com/) - writes any JavaScript using 6 characters - `()+[]!`
 * SaaS
   * [shodan.io](https://www.shodan.io) - search engine for publicly available devices, servers (often with default settings)
   * [images.shodan.io](http://images.shodan.io) - visual search engine for stuff like webcams, unsecured remote desktop, etc. ([screenshot](https://pbs.twimg.com/media/CMFfQJ9UkAQvGVs.png))
@@ -77,17 +80,37 @@ Training agenda: [niebezpiecznik.pl/szkolenia/atakowanie-ochrona-www/](https://n
 * XSS - cross-site scripting - injection of malicious scripts into trusted web sites
   * Allows to steal any page content, swap links, mislead user, steal cookies
   * If a browser is vurnerable, it can take over the entire operating system
-  * What to watch out for:
-    * Input fields which doesn't have validation for scripts / HTML tags
+  * How to protect:
+    * Verify user input - block/validate scripts and HTML tags
       * If possible - do not allow any HTML tags at all. Use something like Markdown or BB Code if you need formatting
       * Prefer whitelisting over blacklisting
       * To execute JavaScript on content load you don't need a script tag - you can also use `<img onload=...>`
+    * Validate data both when reading and saving data
+  * What to watch out for:
     * Any JavaScript can be written using the following 6 characters: `()+[]!` (see http://www.jsfuck.com)
     * XSS can be done through URL, which can be eg. sent by email
     * Stored XSS - data earlier saved to database
-    * Filter in both ways - when reading and saving data
   * [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) header can help mitigate XSS if it occurs
-
+* CRSF or XRSF - cross-site request forgery - also called as single-click attack, occurs when loading or interacting with one website, which maliciously interact with another
+  * How to protect against it:
+    * Use CRSF token
+      * one-off token - can be problematic when working with multiple tabs, as each page reload will generate a new token
+      * with limited life time, eg. 24h
+      * must be assigned to a single user
+    * Require additional validation before accessing sensitive information (as when accessing user data on Ebay/Allegro)
+  * What to watch out for:
+    * Mutating data, especially deliting with GET request (this way data can be mutated even using CSS background!)
+* File upload
+  * Verify multiple things:
+    * Mime type
+    * First bytes
+    * Extension
+  * Assign new, random names to uploaded files
+  * Remove comments from files
+  * Compress images even by 1%
+  * Use separate server for upload (without any language interpreter)
+  
+  
 ## DoS attacks
 * Slowloris attack - sending HTTP request content very slowly, filling a server's maximum concurrent connection pool
 
@@ -96,7 +119,8 @@ Training agenda: [niebezpiecznik.pl/szkolenia/atakowanie-ochrona-www/](https://n
 * Clickjacking - substituting or inserting hidden buttons
 * Opening a page in an iframe - disablee with Content-Security–Policy or X-Frame-Options header, or in JavaScript using "framekiller" (checking the self variable)
 * Path traversal in server-side includes - when there's no validation on the file name to load
-  * Null-byte attack - stripping the rest of the string to eg. remove the hardcoded extension. Even if we have something like `include '/home/userx/data/' .$_GET['name']. '.jpg'`, we can strip the rest of the variable by passing a null byte. C based languages (eg. PHP) may be vulnerable.
+  * Null-byte attack - stripping the rest of the string to eg. remove the hardcoded extension. Even if we have something like `include '/home/userx/data/' .$_GET['name']. '.jpg'`, we can strip the rest of the variable by passing a null byte. C based languages (eg. PHP) may be vulnerable
+* Fuzzing - finding implementation bugs using generated malformed/semi-malformed data
   
 ## To explore
 - [ ] Threat modeling
