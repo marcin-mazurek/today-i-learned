@@ -81,7 +81,7 @@ Training agenda: [niebezpiecznik.pl/szkolenia/atakowanie-ochrona-www/](https://n
       * Must be assigned to a single user
     * Require additional authentication before accessing sensitive information (as when accessing user data on Ebay/Allegro) 
   * What to watch out for:
-    * Mutating data, especially deliting with GET request (this way data can be mutated even using CSS background!)
+    * Mutating data, especially deleting with GET request (this way data can be mutated even using CSS background!)
 * File upload
   * Verify multiple things:
     * Mime type
