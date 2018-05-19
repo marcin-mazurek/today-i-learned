@@ -49,7 +49,7 @@ Training agenda: [niebezpiecznik.pl/szkolenia/atakowanie-ochrona-www/](https://n
 ## HTTP related attacks
 * Do not perform `GET` requests with any sensitive data - it will be stored in logs, and the URL may be visible if you're using TLS with SNI
 * Do not trust HTTP headers. Each header can be overwritten
-* Use HSTS - Strict-Transport-Security response header that tells a browser that it can be only accessed using HTTPS, instead of using HTTP. Doing just a redirect is not safe - the first request (with potentially unsafe data) will not be encoded and can be captured by HTTP sniffer
+* Use HSTS - `Strict-Transport-Security` response header that tells a browser that it can be only accessed using HTTPS, instead of using HTTP. Doing just a redirect is not safe - the first request (with potentially unsafe data) will not be encoded and can be captured by HTTP sniffer
 * Sign your JSONs with eg. JSON Web Signature, to protect from users modifying data with a proxy and eg. enabling premium features for free
 * SSL pinning - making sure the client checks the server’s certificate against a known copy of that certificate, to prevents a man-in-the-middle attacks using a fake, but trusted certificate
 * Forceful browsing attack - accessing resources that are not linked anywhere
@@ -72,7 +72,7 @@ Training agenda: [niebezpiecznik.pl/szkolenia/atakowanie-ochrona-www/](https://n
     * Any JavaScript can be written using the following 6 characters: `()+[]!` (see http://www.jsfuck.com)
     * XSS can be done through URL, which can be eg. sent by email
     * Stored XSS - data earlier saved to database
-  * [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) header can help mitigate XSS if it occurs
+  * [`Content-Security-Policy`](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) header can help mitigate XSS if it occurs
 * CRSF or XRSF - cross-site request forgery - also called as single-click attack, occurs when loading or interacting with one website, which maliciously interact with another
   * How to protect against it:
     * Use CRSF token
