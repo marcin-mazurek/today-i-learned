@@ -110,6 +110,7 @@ Training agenda: [niebezpiecznik.pl/szkolenia/atakowanie-ochrona-www/](https://n
       * Prefer whitelisting over blacklisting
       * To execute JavaScript on content load you don't need a script tag - you can also use `<img onload=...>`
     * Validate data both when reading and saving data
+    * Do not invent your own algorithms for protecting against malicious input. Use existing, battle-tested solutions
   * What to watch out for:
     * Any JavaScript can be written using the following 6 characters: `()+[]!` (see http://www.jsfuck.com)
     * XSS can be done through URL, which can be eg. sent by email
@@ -121,7 +122,7 @@ Training agenda: [niebezpiecznik.pl/szkolenia/atakowanie-ochrona-www/](https://n
       * One-off token - can be problematic when working with multiple tabs, as each page reload will generate a new token
       * With limited life time, eg. 24h
       * Must be assigned to a single user
-    * Require additional validation before accessing sensitive information (as when accessing user data on Ebay/Allegro)
+    * Require additional authentication before accessing sensitive information (as when accessing user data on Ebay/Allegro) 
   * What to watch out for:
     * Mutating data, especially deliting with GET request (this way data can be mutated even using CSS background!)
 * File upload
@@ -147,10 +148,15 @@ Training agenda: [niebezpiecznik.pl/szkolenia/atakowanie-ochrona-www/](https://n
     * IP
     * Screen resolution
     * List of browser fonts
+  * Similarly to CRSF attacks, require additional authentication before accessing sensitive areas
   
 ## DoS attacks
 * Classic DoS/DDoS attack - performing numerous requests to the server, more than servers can handle
 * Slowloris attack - sending HTTP request content very slowly, filling a server's maximum concurrent connection pool
+* Securing against them:
+  * Use CDNs
+  * Use tools such as Cloudflare
+  * 
 
 ## Decoding passwords (eg. once database content is stolen)
 * How to decode a hashed password
@@ -158,14 +164,19 @@ Training agenda: [niebezpiecznik.pl/szkolenia/atakowanie-ochrona-www/](https://n
   * [John The Ripper](http://www.openwall.com/john/) - bruteforce hash decoder
 * How to protect against it:
   * Use strong, slow hashing algorithm with *salt* (a user specific string, eg. part of their email address, ID, etc.) and *pepper* - constant string. The currently recommended algorithm is future-proof, self-salting *Bcrypt*. It allows to define Key Factor, which is basically the cost of hashing. When computers become more powerful in the future, the passwords can be hashed again by given Key Factor to give additional protection against bruteforcing/rainbow table attack.
+* Never ever implement cryptographic alhorithms on your own 
 
 ## Other attacks
 * Directory bruteforcing - searching for specific directories/files (especially config files) using a dictionary attack
 * Clickjacking - substituting or inserting hidden buttons
-* Opening a page in an iframe - disablee with Content-Security–Policy or X-Frame-Options header, or in JavaScript using "framekiller" (checking the self variable)
+* Opening a page in an iframe - disable with Content-Security–Policy or X-Frame-Options header, or in JavaScript using "framekiller" (checking the self variable)
 * Path traversal in server-side includes - when there's no validation on the file name to load
   * Null-byte attack - stripping the rest of the string to eg. remove the hardcoded extension. Even if we have something like `include '/home/userx/data/' .$_GET['name']. '.jpg'`, we can strip the rest of the variable by passing a null byte. C based languages (eg. PHP) may be vulnerable
 * Fuzzing - finding implementation bugs using generated malformed/semi-malformed data
+* Checking if somebody is logged in with `<img>` tag:
+  ```
+  <img style="display: none" onload="loggedInToGmail()" onerror="notLoggedInToGmail()" src="https://mail.google.com/mail/photos/static...">
+  ```
   
 ## To explore
 - [ ] Threat modeling
