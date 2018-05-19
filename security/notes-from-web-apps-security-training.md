@@ -49,12 +49,18 @@ Training agenda: [niebezpiecznik.pl/szkolenia/atakowanie-ochrona-www/](https://n
 * Remove metadata (especially author, path on a disk) from documents (eg. `.doc`, `.pdf`) before publishing
 * Never show any error details
 * Watch your logs and fix errors
+* Do not keep real data on test/pre-production servers. If you have to, use anonymised data instead
+* Remember about different application versions - eg. if you have a separate mobile and desktop version, and find a security issue in one of them, check if it exists in the other one
+* Never show application/library versions (hackers can search for a specific security holes for given version)
+* Before deploying to production for the first time, perform server hardening - basically, make the server secure
+* Block / hide any debugging capabilities in production
 
 ## Personal security
 * Use two factor authentication
 * [umatrix](https://chrome.google.com/webstore/detail/umatrix/ogfcmafjalglgifnmanfmnieipoejdcf?hl=en) - in-browser firewall extension, blocks malware domains, allows for flexible setup
 * If you type a password on a website, make sure it uses SSL
 * Do not use untrusted VPN services
+* To avoid socio-technical attacks, don't trust others, do not give away information
 
 ## Authentication attacks
 * Securing against bruteforce attacks
@@ -76,15 +82,23 @@ Training agenda: [niebezpiecznik.pl/szkolenia/atakowanie-ochrona-www/](https://n
 * Be careful with scanning text looking for SQL words - as somebody may be called W**alter** Cons**table** :)
 * Blind SQL injection attack - an attack where there's no actual SQL output and no error. An attacker can only guess that a page is vurnerable, for example by appending ` AND 1=1` or ` AND 1=2` and seeing how the application behaves
 * Time-based blind SQL injection attack - an attack in which `sleep(x)` function is added. If the page responds with a given delay, it means that the page is vulnerable
+* SQL injection can be even used to execute a shell command
 * Tools to check against SQL injection:
   * [sqlmap](http://sqlmap.org)
+* How to stay secure:
+  * Stored procedures
+  * Prepared statements / bind variables
 
 ## HTTP related attacks
 * Do not perform `GET` requests with any sensitive data - it will be stored in logs, and the URL may be visible if you're using TLS with SNI
 * Do not trust HTTP headers. Each header can be overwritten
+* Use HSTS - Strict-Transport-Security response header that tells a browser that it can be only accessed using HTTPS, instead of using HTTP. Doing just a redirect is not safe - the first request (with potentially unsafe data) will not be encoded and can be captured by HTTP sniffer
 * Sign your JSONs with eg. JSON Web Signature, to protect from users modifying data with a proxy and eg. enabling premium features for free
 * SSL pinning - making sure the client checks the server’s certificate against a known copy of that certificate, to prevents a man-in-the-middle attacks using a fake, but trusted certificate
-* Use HSTS - Strict-Transport-Security response header that tells a browser that it can be only accessed using HTTPS, instead of using HTTP. Doing just a redirect is not safe - the first request (with potentially unsafe data) will not be encoded and can be captured by HTTP sniffer
+* Forceful browsing attack - accessing resources that are not linked anywhere
+  * If you detect a HTTP bruteforce attack, you can return 200 rather than 404, to mislead the attacker
+  * Hide directory listings
+  * Do not rename files on a server from eg. `index.php` to `index.php.backup`. Such files can be downloaded and source code can be compromised
 
 ## Browser attacks
 * XSS - cross-site scripting - injection of malicious scripts into trusted web sites
