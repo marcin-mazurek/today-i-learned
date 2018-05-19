@@ -90,7 +90,7 @@ Training agenda: [niebezpiecznik.pl/szkolenia/atakowanie-ochrona-www/](https://n
 * XSS - cross-site scripting - injection of malicious scripts into trusted web sites
   * Allows to steal any page content, swap links, mislead user, steal cookies
   * If a browser is vurnerable, it can take over the entire operating system
-  * How to protect:
+  * How to protect against it:
     * Verify user input - block/validate scripts and HTML tags
       * If possible - do not allow any HTML tags at all. Use something like Markdown or BB Code if you need formatting
       * Prefer whitelisting over blacklisting
@@ -142,7 +142,7 @@ Training agenda: [niebezpiecznik.pl/szkolenia/atakowanie-ochrona-www/](https://n
 * How to decode a hashed password
   * Using rainbow tables - precomputed table for reversing cryptographic hash functions
   * [John The Ripper](http://www.openwall.com/john/) - bruteforce hash decoder
-* How to protect
+* How to protect against it:
   * Use strong, slow hashing algorithm with *salt* (a user specific string, eg. part of their email address, ID, etc.) and *pepper* - constant string. The currently recommended algorithm is future-proof, self-salting *Bcrypt*. It allows to define Key Factor, which is basically the cost of hashing. When computers become more powerful in the future, the passwords can be hashed again by given Key Factor to give additional protection against bruteforcing/rainbow table attack.
 
 ## Other attacks
