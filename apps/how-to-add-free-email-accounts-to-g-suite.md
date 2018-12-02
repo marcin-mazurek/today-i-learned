@@ -1,11 +1,10 @@
 # How to add free email accounts to G Suite
 
-To add free email accounts to G Suite, you can use G Suite email forwarding option (to forward emails from your custom domain to free Gmail inbox)
-and regular Gmail "Send email us" option (to send emails using your custom domain).
+The tutorial below explains how to mix paid G Suite accounts with free Gmail accounts using a custom domain.
 
-You'll need at least one paid G Suite account - Basic, Business or Enterprise.
+You'll need at least one paid G Suite account - Basic, Business or Enterprise. You won't be able to use any G Suite functionality (such as shared team drives on Google Drive) on your additional free Gmail inboxes.
 
-You won't be able to use any G Suite functionality (such as shared team drives on Google Drive) on your additional free Gmail inboxes.
+To add free additional inboxes to G Suite, you'll use the G Suite email forwarding option (to forward emails from your custom domain to free Gmail inbox) and "Send email us" option from free Gmail (to send emails using your custom domain).
 
 1. Set up SMTP server in G Suite (custom domain)
     - Open Google Admin console
