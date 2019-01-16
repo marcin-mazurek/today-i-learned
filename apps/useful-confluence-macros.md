@@ -1,30 +1,28 @@
-## Alert
+### Alert
 
 ```
 {alert}
 ```
 
-Creates a nice popup alert
-
-## Code block
+### Code block
 
 ```
 {code}
 ```
 
-## Inline code block
+### Inline code block
 
 ```
 {{double curly brackets}}
 ```
 
-## Table of contents - subpages
+### Table of contents - subpages
 
 ```
 {children display}
 ```
 
-## Nice colorful labels
+### Nice colorful labels
 
 ```
 {status}
