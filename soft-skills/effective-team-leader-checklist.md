@@ -9,6 +9,7 @@
 * Invest in relationships. **This is a key thing to succeed as a leader.** Build a strong internal network of relationships (other team leaders, project managers in the company).
 * Understand the whole process that your software is supporting end-to-end, and ideally the whole business. Don't concentrate only on what happens in your team, within your product, try to understand the whole user journey, how various actors interact with the system, etc.
 * Be sceptical. Don't trust others by default.
+* Understanding in depth what you are supposed to be building, as directly as possible from the stakeholders. Nothing is worse than building the wrong thing perfectly right.
 
 ## Work organisation
 * Plan your work in time ranges (time for technical tasks, leadership tasks, etc.)
