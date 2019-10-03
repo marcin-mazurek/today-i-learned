@@ -34,7 +34,7 @@ Building an image and running with a custom host available:
 docker build -t [image name] . && docker run -p 5000:5000 --add-host=[domain]:[ip] [image name]
 ```
 
-Eg. 
+Eg.
 
 ```
 docker build -t my-api . && docker run -p 5000:5000 --add-host=consul:10.208.67.163 my-api
@@ -45,4 +45,10 @@ Jump into the Docker container Bash:
 ```
 docker ps # copy the container ID you want to jump into
 sudo docker exec -it [container id] /bin/bash
+```
+
+Running Docker hello world - eg. to verify the setup:
+
+```
+docker run hello-world
 ```
