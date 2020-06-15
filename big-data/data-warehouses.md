@@ -1,6 +1,6 @@
 # Data Warehouses
 
-Data Warehouse exists on top of multiple databases and is used for business intelligence. Those databases are optimized specifically for data analytics workload (readonly operations that do not require transactions).
+Data Warehouse hosts consolidated data from multiple locations (databases), usually imported through incremental ETL pipelines. It is used for business intelligence. Its engine is specifically optimized for data analytics (called OLAP = online analytical processing - readonly operations that do not require transactions).
 
 ### Structured vs unstructured data
 
@@ -10,4 +10,3 @@ Data Warehouse exists on top of multiple databases and is used for business inte
 ### Data lake
 
 Data lake is a centralized place for structured and unstructured data storage of different type, such as images, text, files, videos. 
-
