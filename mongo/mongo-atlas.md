@@ -1,4 +1,4 @@
-Features:
+## Features
 
 * Fully managed and scalable based on demand
 * Global, cloud agnostic (supports GCP, Azure & AWS)
@@ -9,3 +9,4 @@ Features:
 * Sharding management
 * Cross-cloud redundancy
 * Live migration (bi-directional, from on prem to cloud, from cloud to on prem, from cloud to cloud)
+
