@@ -35,7 +35,7 @@ contextBridge.exposeInMainWorld('electronAPI', {
 });
 ```
 
-### Main -> renderer - no return value
+### Main -> renderer
 
 Main:
 ```
@@ -49,5 +49,3 @@ contextBridge.exposeInMainWorld('electronAPI', {
 });
 ```
 
-### Main -> renderer - with return value
-TODO
