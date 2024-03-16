@@ -1,0 +1,58 @@
+user -> client.react-app
+client.react-app -> server.rest-api
+client.react-app -> 3rd-party.auth: authenticates the user
+client.react-app -> 3rd-party.analytics: pushes analytics events
+server.crypto-price-svc -> 3rd-party.coingecko: Fetches crypto prices
+
+user: {
+  label: User
+  shape: person
+}
+
+client: {
+  react-app: {
+    label: Crypto Portfolio Tracker\nReact App
+  }
+}
+
+server: {
+  rest-api: {
+    label: Rest API
+  }
+
+  crypto-price-svc: {
+    label: Crypto Price Service
+  }
+
+  postgres: {
+    label: PostgreSQL
+    shape: cylinder
+    style.multiple: true
+  }
+
+  redis: {
+    label: Redis
+    shape: cylinder
+    style.multiple: true
+  }
+
+  rest-api -> postgres: reads/writes\nuser data
+  rest-api -> crypto-price-svc: reads crypto prices
+  crypto-price-svc -> redis: writes crypto prices
+}
+
+3rd-party: {
+  label: 3rd party services
+
+  coingecko: {
+    label: Coin Gecko API
+  }
+
+  auth: {
+    label: Google OAuth 2.0
+  }
+
+  analytics: {
+    label: Google Analytics
+  }
+}
