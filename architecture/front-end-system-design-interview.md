@@ -1,6 +1,6 @@
 # Front-end System Design Interview Preparation Notes
 
-## Tools to use during interview
+## Tools to use during remote interview
 
 - [draw.io](https://app.diagrams.net/) for drawing mockups and diagrams
 - Alternatively: [D2](https://play.d2lang.com/) for creating diagrams as code
@@ -98,6 +98,6 @@
     
 ## Folder structure
 
-In any non-trivial application, it's great to organize folder structure around features, and have directories organized by purpose only for shared functionality (utils, general hooks, context). 
+Most likely out of scope for system design interviews. In any non-trivial application, it's great to organize folder structure around features, and have directories organized by purpose only for shared functionality (utils, general hooks, context). 
 
 Great example: https://github.com/WebDevSimplified/react-folder-structure/tree/main/advanced
